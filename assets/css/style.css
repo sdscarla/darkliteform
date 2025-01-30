@@ -1,10 +1,10 @@
 /*importando fontes*/
 @import url('https://fonts.googleapis.com/css2?family=Playwrite+AU+SA:wght@100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-/* criando variavéis para as cores*/
 :root {
     --color-light-50: #f8fafc;
 
+    /*cores dark*/
     --color-dark-50: #797984;
     --color-dark-100: #312d37;
     --color-dark-900: #000;
@@ -13,11 +13,11 @@
     --color-purple-100: #a855f7;
     --color-purple-200: #bf46ef;
 
-    --color-gradient: linear-gradient(90deg, , var(--color-dark-100), var(--color-dark-200))
+    --color-gradient: linear-gradient(90deg, var(--color-purple-50), var(--color-purple-100), var(--color-purple-200));
 }
 
 * {
-    font-family: 'Poppins, sans-serif';
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -27,11 +27,124 @@
     height: 100vh;
     width: 100%;
     background: var(--color-gradient);
-    display: flex; /*posicionar o formulário no centro da tela*/
+    display: flex; /*posiciona no meio da tela*/
     align-items: center;
     justify-content: center;
 }
 
+/*modo light*/
+
+#login_form {
+    background-color: var(--color-light-50);
+    display: flex; /*comportamento em linha*/
+    flex-direction: column; /*altera o comportamento para coluna*/
+    padding: 30px 40px; /*fica com mais espaçamento nas laterais*/
+    border-radius: 8px; /*arredondar as pontas*/
+    gap: 30px; /*mesmo espaçamento entre o login, ícones, informações e o botão*/
+    box-shadow: 5px 5px 8px rgba(0, 0, 0,0.336);
+    height: fit-content;
+}
+
+#form_header {
+    display: flex; /*icone de lua deslocado para a direita*/
+    align-items: center;
+    justify-content: space-between; /*um do lado do outro*/
+}
+
+#form_header h1 {
+    font-size: 40px;
+    position: relative; /*serve para fazer a linha debaixo*/
+}
+
+#form_header h1::before { /*do lado do h1 para criar a linha*/
+    position: absolute;
+    content: '';
+    width: 40%;
+    background-color: var(--color-purple-50);
+    height: 3px; /*para conseguir visualizar*/
+    bottom: 10px; /*para ele descer*/
+    border-radius: 5px;
+}
+
+#mode_icon {
+    cursor: pointer; /*para mudar de seta para "mãozinha"*/
+    font-size: 20px;
+}
+
+#social_media {
+    display: flex;
+    justify-content: space-between; /*coloca espaços iguais ao redor dos icones; space between colocaria espaço só entre os icones*/
+}
+
 #social_media img {
     width: 35px;
+
+}
+
+#social_media img:hover {
+    transform: scale(1.2); /*para não bugar tudo quando passar o mouse em cima dos icones*/
+}
+
+#inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.input-box label {
+    font-size: 14px;
+    color: var(--color-dark-50);
+}
+
+.input-field {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 3px;
+    cursor: text; /*quando o mouse passar em cima dos ícones e for clicado vai acionar o campo*/
+    border-bottom: 1px solid var(--color-purple-50);
+}
+
+.input-field i {
+    font-size: 18px;
+    color: var(--color-dark-900);
+}
+
+.input-field input {
+    border: none; /*para tirar a borda*/
+    background-color: transparent;
+    width: 260px;
+    font-size: 18px;
+    padding: 0px 5px;
+}
+
+.input-field input:focus {
+    outline: none; /*tirar a bordar do campo quando é clicado*/
+}
+
+#forgot_password a {
+    text-decoration: none; /*tira a linha que fica embaixo*/
+    font-size: 12px;
+    color: var(--color-dark-50);
+}
+
+#forgout_password a:hover {
+    color: var(--color-purple-50);
+}
+
+#login_button {
+    border: none;
+    background: var(--color-gradient);
+    color: var(--color-light-50);
+    padding: 7px;
+    font-size: 18px;
+    border-radius: 3px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#login_button:hover {
+    transform: scale(1.05); /*aumenta o tamanho*/
 }
